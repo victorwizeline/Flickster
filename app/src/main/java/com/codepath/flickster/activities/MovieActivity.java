@@ -27,7 +27,7 @@ public class MovieActivity extends AppCompatActivity implements MoviesListener {
         setContentView(R.layout.activity_movie);
         ButterKnife.bind(this);
         ApiManager.instance().requestMoviesList(this);
-        dialog = Dialogs.getInstance().showProgressDizlog(this);
+        dialog = Dialogs.getInstance().showProgressDialog(this);
     }
 
     @Override

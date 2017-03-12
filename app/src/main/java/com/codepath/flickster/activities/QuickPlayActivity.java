@@ -7,6 +7,7 @@ import com.codepath.flickster.R;
 import com.codepath.flickster.controllers.ApiManager;
 import com.codepath.flickster.controllers.Dialogs;
 import com.codepath.flickster.interfaces.VideosListener;
+import com.codepath.flickster.models.Video;
 import com.codepath.flickster.models.VideosResults;
 import com.codepath.flickster.utils.Constants;
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -34,7 +35,13 @@ public class QuickPlayActivity extends YouTubeBaseActivity implements VideosList
         runOnUiThread(() -> youTubePlayerView.initialize(BuildConfig.YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.loadVideo(results.videos.get(1).key);
+                for (Video video : results.videos) {
+                    if (video.name.contains("Trailer")) {
+                        youTubePlayer.loadVideo(video.key);
+                        return;
+                    }
+                }
+                youTubePlayer.loadVideo(results.videos.get(0).key);
             }
 
             @Override

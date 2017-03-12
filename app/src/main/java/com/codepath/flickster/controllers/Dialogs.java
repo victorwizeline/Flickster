@@ -26,7 +26,7 @@ public class Dialogs {
                 .show();
     }
 
-    public AlertDialog showProgressDizlog(Context context) {
+    public AlertDialog showProgressDialog(Context context) {
         return new ProgressDialog.Builder(context)
                 .setMessage(R.string.loading)
                 .setCancelable(false)
