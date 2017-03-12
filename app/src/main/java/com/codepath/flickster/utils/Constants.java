@@ -3,6 +3,7 @@ package com.codepath.flickster.utils;
 import com.codepath.flickster.BuildConfig;
 
 public class Constants {
+
     private final static String BASE_URL = "https://api.themoviedb.org/3/movie/";
     public final static String MOVIES = BASE_URL + "now_playing?api_key=" + BuildConfig.MOVIEDB_API_KEY;
     public final static String VIDEOS = BASE_URL + "%s/videos?api_key=" + BuildConfig.MOVIEDB_API_KEY;

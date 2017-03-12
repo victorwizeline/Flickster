@@ -4,10 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-/**
- * Created by victor on 3/9/17.
- */
-
 public class Movie implements Serializable {
 
     public Integer id;

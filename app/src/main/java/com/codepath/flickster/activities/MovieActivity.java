@@ -1,5 +1,6 @@
 package com.codepath.flickster.activities;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 public class MovieActivity extends AppCompatActivity implements MoviesListener {
 
     @BindView(R.id.rvMovies) RecyclerView rvMovies;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,13 @@ public class MovieActivity extends AppCompatActivity implements MoviesListener {
         setContentView(R.layout.activity_movie);
         ButterKnife.bind(this);
         ApiManager.instance().requestMoviesList(this);
+        dialog = Dialogs.getInstance().showProgressDizlog(this);
     }
 
     @Override
     public void onMoviesLoaded(final MoviesResults moviesResults) {
         runOnUiThread(() -> {
+            dialog.cancel();
             rvMovies.setLayoutManager(new LinearLayoutManager(this));
             rvMovies.setAdapter(new MoviesAdapter(moviesResults.movies));
         });
