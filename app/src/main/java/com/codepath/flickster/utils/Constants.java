@@ -12,4 +12,5 @@ public class Constants {
     public final static String MOVIE = "movie";
     public final static int LAYOUT_TYPE_1 = 1;
     public final static int LAYOUT_TYPE_2 = 2;
+    public final static int POPULAR_MOVIE_AVERAGE = 5;
 }
